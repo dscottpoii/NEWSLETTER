@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Boat Pro Newsletter - Expert Boat Advice & DIY Guides</title>
+    <meta name="description" content="Get weekly expert boat reviews, DIY maintenance guides, and navigation tips. Subscribe for $9.99/month introductory offer.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-cta {
+            background: white;
+            color: #0c4a6e;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        .nav-cta:hover {
+            transform: scale(1.05);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .cta-button {
+            background: #ffd700;
+            color: #0c4a6e;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #0c4a6e;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.featured {
+            border: 3px solid #ffd700;
+            transform: scale(1.05);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: #ff6b6b;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .plan-name {
+            font-size: 1.8rem;
+            color: #0c4a6e;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .price {
+            font-size: 3rem;
+            color: #0284c7;
+            font-weight: 800;
+            margin: 20px 0;
+        }
+
+        .price-period {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .savings {
+            color: #22c55e;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+
+        .features-list {
+            list-style: none;
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #555;
+        }
+
+        .features-list li:before {
+            content: "✓ ";
+            color: #22c55e;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .urgency-text {
+            background: #fff3cd;
+            border-left: 4px solid #ffd700;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-weight: 600;
+            color: #856404;
+        }
+
+        .free-guide-section {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 60px 20px;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #0c4a6e;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #0284c7;
+        }
+
+        .payment-info {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .payment-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+
+        .payment-icon {
+            padding: 8px 15px;
+            background: white;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #0c4a6e;
+        }
+
+        .testimonials {
+            background: white;
+            padding: 60px 20px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid #0284c7;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: #0c4a6e;
+        }
+
+        .footer {
+            background: #0c4a6e;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .price {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">⚓ The Boat Pro</a>
+            <a href="#pricing" class="nav-cta">Subscribe Now</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">🎉 INTRODUCTORY OFFER - ENDS 12/1/2025</div>
+            <h1>Expert Boat Advice, Delivered Weekly</h1>
+            <p class="hero-subtitle">
+                25+ years of professional boat experience. DIY maintenance guides, honest reviews, and navigation tips that save you thousands.
+            </p>
+            <a href="#free-guide" class="cta-button">Get FREE Boat Show Guide</a>
+            <a href="#pricing" class="cta-button">Start Premium - $9.99/mo</a>
+        </div>
+    </section>
+
+    <!-- Free Guide Section -->
+    <section id="free-guide" class="free-guide-section">
+        <div class="section">
+            <h2 class="section-title">Start with Our FREE Guide</h2>
+            <p class="section-subtitle">Get the 2025 US Boat Show Do's & Don'ts Guide instantly</p>
+
+            <div class="form-container">
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <input type="hidden" name="_next" value="https://yourusername.github.io/boat-pro-newsletter/thank-you.html">
+                    <input type="hidden" name="_subject" value="New Boat Show Guide Download">
+                    
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Captain John">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="you@email.com">
+                    </div>
+
+                    <button type="submit" class="cta-button" style="width: 100%;">
+                        📥 Send Me the FREE Guide
+                    </button>
+
+                    <p style="text-align: center; margin-top: 15px; color: #666; font-size: 0.9rem;">
+                        No credit card required. Unsubscribe anytime.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section">
+        <h2 class="section-title">Choose Your Plan</h2>
+        <p class="section-subtitle">Join thousands of boat owners getting expert advice weekly</p>
+
+        <div class="pricing-grid">
+            <!-- Free Plan -->
+            <div class="pricing-card">
+                <div class="plan-name">Free</div>
+                <div class="price">
+                    $0
+                    <span class="price-period">/month</span>
+                </div>
+
+                <ul class="features-list">
+                    <li>Monthly boat show tips email</li>
+                    <li>FREE 2025 Boat Show Guide</li>
+                    <li>Basic maintenance reminders</li>
+                    <li>Community access</li>
+                </ul>
+
+                <a href="#free-guide" class="cta-button" style="background: #e0e0e0; color: #333;">
+                    Get Started Free
+                </a>
+            </div>
+
+            <!-- Premium Plan - Featured -->
+            <div class="pricing-card featured">
+                <div class="featured-badge">⏰ LOCKS IN FOR LIFE!</div>
+                <div class="plan-name">Premium Monthly</div>
+                
+                <div class="urgency-text">
+                    🔥 Introductory rate ends 12/1/2025<br>
+                    Lock in $9.99/month FOREVER!
+                </div>
+
+                <div>
+                    <span class="old-price">Regular $19.99/month</span>
+                    <div class="price">
+                        $9.99
+                        <span class="price-period">/month</span>
+                    </div>
+                    <div class="savings">Save 50% - First 100 subscribers only</div>
+                </div>
+
+                <ul class="features-list">
+                    <li>Everything in Free, PLUS:</li>
+                    <li>Weekly expert boat reviews</li>
+                    <li>DIY technical how-to articles</li>
+                    <li>Navigation tips & charts</li>
+                    <li>Boat delivery advice</li>
+                    <li>Maintenance guides & checklists</li>
+                    <li>Exclusive resources library</li>
+                    <li>Member-only webinars</li>
+                    <li>Priority email support</li>
+                </ul>
+
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="YOUR_PAYPAL_BUTTON_ID">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <button type="submit" class="cta-button" style="width: 100%;">
+                        🚀 Subscribe Now - $9.99/mo
+                    </button>
+                </form>
+
+                <div class="payment-info">
+                    <p style="font-weight: 600; color: #0c4a6e; margin-bottom: 10px;">💳 Secure Payment via PayPal</p>
+                    <div class="payment-icons">
+                        <div class="payment-icon">Credit Card</div>
+                        <div class="payment-icon">PayPal</div>
+                        <div class="payment-icon">🔒 Secure</div>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.9em; color: #666;">
+                        Cancel anytime. 30-day money-back guarantee.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Lifetime Plan -->
+            <div class="pricing-card">
+                <div class="plan-name">Lifetime Access</div>
+                
+                <div class="price">
+                    $299
+                    <span class="price-period">one-time</span>
+                </div>
+                <div class="savings">💎 Save $240 in first year vs monthly</div>
+
+                <ul class="features-list">
+                    <li>All Premium features</li>
+                    <li>LIFETIME access - pay once</li>
+                    <li>Future content included</li>
+                    <li>Priority support forever</li>
+                    <li>Exclusive lifetime member perks</li>
+                    <li>Early access to new features</li>
+                </ul>
+
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="YOUR_LIFETIME_PAYPAL_BUTTON_ID">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <button type="submit" class="cta-button" style="width: 100%; background: #0284c7; color: white;">
+                        ⚓ Get Lifetime Access
+                    </button>
+                </form>
+
+                <div class="payment-info">
+                    <p style="font-size: 0.9em; color: #666;">
+                        One-time payment. Never pay again.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 30px; background: #fff3cd; border-radius: 15px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <p style="font-size: 1.2rem; font-weight: 700; color: #856404; margin-bottom: 10px;">
+                ⚠️ Price increases to $19.99/month after December 1st, 2025
+            </p>
+            <p style="color: #856404;">
+                Current subscribers keep their introductory rate forever. Lock in your savings today!
+            </p>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section">
+            <h2 class="section-title">What Boat Owners Say</h2>
+            <p class="section-subtitle">Join over 3,000 satisfied subscribers</p>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "The DIY guides alone have saved me over $5,000 in the first year. Best investment I've made for my boat."
+                    </p>
+                    <p class="testimonial-author">- Mike R., Trawler Owner</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Finally, honest boat reviews from someone who actually knows what they're talking about. No fluff, just facts."
+                    </p>
+                    <p class="testimonial-author">- Sarah T., Sailboat Cruiser</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "The navigation tips are gold. I feel so much more confident planning our coastal trips now."
+                    </p>
+                    <p class="testimonial-author">- James L., Sport Fisher</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="section">
+            <h3 style="color: white; margin-bottom: 20px;">⚓ The Boat Pro Newsletter</h3>
+            <p style="margin-bottom: 20px; opacity: 0.9;">
+                Expert boat advice from 25+ years of professional experience.<br>
+                Helping boat owners save money and sail confidently.
+            </p>
+            <p style="opacity: 0.7; font-size: 0.9rem;">
+                © 2025 The Boat Pro. All rights reserved.<br>
+                <a href="mailto:support@theboatpro.com" style="color: white;">support@theboatpro.com</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
